@@ -1,14 +1,17 @@
-let data, swiper, slides, titleContainer;
+let data, swiper, sliderImage, slides, titleContainer, initialImgSrc;
 let mediaQuery = window.matchMedia("(max-width: 992px)");
 
 document.addEventListener("DOMContentLoaded", () => {
+    sliderImage = document.querySelector(".featured-products__left-container__image");
+
     slides = document.querySelectorAll(".swiper-slide");
     titleContainer = document.querySelector(".featured-products__right-container__title");
+    initialImgSrc = document.querySelector(".featured-products__left-container__image").src;
 
     setData();
 });
 
-mediaQuery.addEventListener("change", () => {
+mediaQuery.addEventListener("onChangeResolution", () => {
     slides.forEach(slide => slide.innerHTML = "");
     if (swiper) swiper.destroy();
     createSwiper();
@@ -49,6 +52,8 @@ function initializeSwiper() {
     titleContainer.children[1].textContent = "€" + data[0].price;
     titleContainer.children[2].textContent = "€" + data[0].price * 1.2;
 
+    sliderImage.src = initialImgSrc;
+
     const swiperWrapper = document.querySelector(".swiper-wrapper");
     for (let i = 0; i < swiperWrapper.children.length; i++) {
         const slide = swiperWrapper.children[i];
@@ -65,4 +70,14 @@ function onChangeSlide() {
     titleContainer.children[0].textContent = data[swiper.activeIndex].title;
     titleContainer.children[1].textContent = "€" + data[swiper.activeIndex].price;
     titleContainer.children[2].textContent = "€" + data[swiper.activeIndex].price * 1.2;
+
+    sliderImage.src = initialImgSrc;
+
+    if (swiper.activeIndex !== 0) 
+        if (data[swiper.activeIndex].images[1])
+            sliderImage.src = data[swiper.activeIndex].images[1];
+        else 
+            sliderImage.src = initialImgSrc;
+    else 
+        sliderImage.src = initialImgSrc;
 }
