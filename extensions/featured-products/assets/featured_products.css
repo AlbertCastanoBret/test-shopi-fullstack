@@ -1,0 +1,142 @@
+.featured-products {
+    display: flex;
+    gap: 20px;
+    height: 730px;
+}
+
+.featured-products__left-container {
+    width: 50%;
+    position: relative;
+}
+
+.featured-products__left-container__description {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 14px;
+}
+
+.featured-products__left-container__description h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+}
+
+.featured-products__left-container__description p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.featured-products__left-container__image {
+    width: 100%;
+    height: 100% !important;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.featured-products__right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    position: relative;
+}
+
+.featured-products__right-container__title h3{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 6px;
+    margin-bottom: 2px;
+}
+
+.featured-products__right-container__title span{
+    margin: 0;
+    font-size: 28px;
+}
+
+.featured-products__right-container__title :nth-child(2){
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.featured-products__right-container__title :nth-child(3){
+    text-decoration: line-through;
+}
+
+.featured-products__right-container__image {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.swiper-container {
+    position: relative;
+}
+
+.swiper {
+    width: 100%;
+    height: 76%;
+    margin: 0;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  display: block !important;
+
+}
+  
+.swiper-button-disabled {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 992px) {
+    .featured-products {
+        flex-direction: column;
+        gap: 60px;
+        height: auto;
+    }
+
+    .featured-products__left-container {
+        width: 100%;
+        height: 70vh;
+    }
+
+    .featured-products__right-container {
+        width: 100%;
+    }
+
+    .featured-products__left-container__description {
+        padding-bottom: 28px;
+    }
+
+    .featured-products__right-container__title h3 {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

@@ -1,8 +1,36 @@
 {% comment %} Your code starts here {% endcomment %}
-<section id="featured-product-{{ block.id }}">
+{{ 'featured_products.js' | asset_url | script_tag }}
+{{ 'featured_products.css' | asset_url | stylesheet_tag }}
+{{ 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css' | stylesheet_tag }}
+{{ 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js' | script_tag }}
+<section id="featured-product-{{ block.id }}" class="featured-products">
   {% comment %} block.settings object contains the settings you define in the schema object, you can access the settings values using the id as key, show example below {% endcomment %}
-  <h1>{{ block.settings.title }}</h1>
-  <p>test</p>
+  <div class="featured-products__left-container">
+    <div class="featured-products__left-container__description">
+      <h2>{{ block.settings.title }}</h2>
+      <p>{{ block.settings.description }}</p>
+    </div>
+    <img class="featured-products__left-container__image" src="{{ block.settings.background_image | image_url }}" alt="featured product">
+  </div>
+  <div class="featured-products__right-container">
+    <div class="featured-products__right-container__title">
+      <h3></h3>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
 </section>
 {% comment %} And ends here {% endcomment %}
 
@@ -18,7 +46,18 @@
       "type": "text",
       "label": "Title",
       "id": "title", // Use this to access the value in the block.settings object
-      "default": "Featured products title"
+      "default": "Featured products"
+    },
+    {
+      "type": "text",
+      "label": "Description",
+      "id": "description",
+      "default": "Our top products for this month"
+    },
+    {
+      "type": "image_picker",
+      "label": "Background Image",
+      "id": "background_image"
     }
   ]
 }

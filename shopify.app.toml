@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "e1f8e2bc0f80805c49415056b7c52139"
-application_url = "https://yea-managers-dealt-ul.trycloudflare.com"
+application_url = "https://caused-guest-beds-realistic.trycloudflare.com"
 embedded = true
 name = "test-dev-app"
 handle = "test-dev-app-42"
@@ -15,9 +15,9 @@ scopes = "read_customers,read_orders,unauthenticated_read_product_listings,write
 
 [auth]
 redirect_urls = [
-  "https://yea-managers-dealt-ul.trycloudflare.com/auth/callback",
-  "https://yea-managers-dealt-ul.trycloudflare.com/auth/shopify/callback",
-  "https://yea-managers-dealt-ul.trycloudflare.com/api/auth/callback"
+  "https://caused-guest-beds-realistic.trycloudflare.com/auth/callback",
+  "https://caused-guest-beds-realistic.trycloudflare.com/auth/shopify/callback",
+  "https://caused-guest-beds-realistic.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
