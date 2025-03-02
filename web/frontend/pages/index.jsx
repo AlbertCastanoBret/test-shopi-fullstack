@@ -15,7 +15,6 @@ import {
 
 export default function HomePage() {
   const [summary, setSummary] = useState({ products: 0, collections: 0 });
-
   const shopify = useAppBridge();
 
   const { data, isLoading } = useQuery({
@@ -39,41 +38,31 @@ export default function HomePage() {
       <Layout>
         <Layout.Section>
           <Card padding="0">
-            <Box padding="300">
-              <InlineStack align="space-between">
-                <Text as="p" variant="headingMd">
-                  Products
-                </Text>
-                <InlineStack gap="200">
-                  <Text>{summary.products}</Text>
-                  {isLoading ? (
-                    <Spinner size="small" />
-                  ) : (
-                    <Badge progress="complete" size="small" tone="success">
-                      Done
-                    </Badge>
-                  )}
-                </InlineStack>
-              </InlineStack>
-            </Box>
-            <Divider />
-            <Box padding="300">
-              <InlineStack align="space-between">
-                <Text as="p" variant="headingMd">
-                  Customers
-                </Text>
-                <InlineStack gap="200">
-                  <Text>0</Text>
-                  {isLoading ? (
-                    <Spinner size="small" />
-                  ) : (
-                    <Badge progress="complete" size="small" tone="success">
-                      Done
-                    </Badge>
-                  )}
-                </InlineStack>
-              </InlineStack>
-            </Box>
+          {
+              !isLoading && Object.values(summary).map((item, index) => (
+                <>
+                  <Box key={item.id} padding="300">
+                    <InlineStack align="space-between">
+                      <Text as="p" variant="headingMd">
+                        {String(Object.keys(summary)[index]).charAt(0).toUpperCase() + 
+                        String(Object.keys(summary)[index]).slice(1)}:
+                      </Text>
+                      <InlineStack gap="200">
+                        <Text>{item}</Text>
+                        {isLoading ? (
+                          <Spinner size="small" />
+                        ) : (
+                          <Badge progress="complete" size="small" tone="success">
+                            Done
+                          </Badge>
+                        )}
+                      </InlineStack>
+                    </InlineStack>
+                  </Box>
+                  <Divider></Divider>
+                </>
+              ))
+            }
           </Card>
         </Layout.Section>
       </Layout>

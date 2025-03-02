@@ -1,7 +1,13 @@
 import { shopify } from "../core/index.js";
 
-const PRODUCTS_COUNT = `{
+const STATUS_QUERY = `{
   productsCount {
+    count
+  }
+  customersCount {
+    count
+  }
+  ordersCount {
     count
   }
 }`;
@@ -25,10 +31,12 @@ export const statusController = {
       const {
         data: {
           productsCount: { count: products },
+          customersCount: { count: customers },
+          ordersCount: { count: orders },
         },
-      } = await client.request(PRODUCTS_COUNT);
+      } = await client.request(STATUS_QUERY);
 
-      res.status(200).json({ products });
+      res.status(200).json({ products, customers, orders });
     } catch (error) {
       console.log(error);
 
