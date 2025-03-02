@@ -1,10 +1,13 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "e1f8e2bc0f80805c49415056b7c52139"
-application_url = "https://caused-guest-beds-realistic.trycloudflare.com"
+client_id = "c4c6005362e093f863db4f1bb8b5dfa1"
+application_url = "https://police-pastor-responsibilities-ports.trycloudflare.com"
 embedded = true
 name = "test-dev-app"
-handle = "test-dev-app-42"
+handle = "test-dev-app-41"
+
+[build]
+include_config_on_deploy = true
 
 [webhooks]
 api_version = "2025-01"
@@ -15,13 +18,10 @@ scopes = "read_customers,read_orders,unauthenticated_read_product_listings,write
 
 [auth]
 redirect_urls = [
-  "https://caused-guest-beds-realistic.trycloudflare.com/auth/callback",
-  "https://caused-guest-beds-realistic.trycloudflare.com/auth/shopify/callback",
-  "https://caused-guest-beds-realistic.trycloudflare.com/api/auth/callback"
+  "https://police-pastor-responsibilities-ports.trycloudflare.com/auth/callback",
+  "https://police-pastor-responsibilities-ports.trycloudflare.com/auth/shopify/callback",
+  "https://police-pastor-responsibilities-ports.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
 embedded = false
-
-[build]
-automatically_update_urls_on_dev = true

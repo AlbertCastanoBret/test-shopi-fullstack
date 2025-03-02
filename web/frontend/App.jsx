@@ -20,6 +20,9 @@ export default function App() {
             <a href="/erp" rel="erp settings">
               ERP
             </a>
+            <a href="/productdetails" rel="product details">
+              Product Details
+            </a>
           </NavMenu>
           <Routes pages={pages} />
         </QueryProvider>
