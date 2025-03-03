@@ -37,11 +37,11 @@ export default function HomePage() {
     <Page title="Integration status" narrowWidth>
       <Layout>
         <Layout.Section>
-          <Card padding="0">
+          <Card key={1} padding="0">
           {
               !isLoading && Object.values(summary).map((item, index) => (
-                <>
-                  <Box key={item.id} padding="300">
+                <div key={index}>
+                  <Box padding="300">
                     <InlineStack align="space-between">
                       <Text as="p" variant="headingMd">
                         {String(Object.keys(summary)[index]).charAt(0).toUpperCase() + 
@@ -60,7 +60,7 @@ export default function HomePage() {
                     </InlineStack>
                   </Box>
                   <Divider></Divider>
-                </>
+                </div>
               ))
             }
           </Card>

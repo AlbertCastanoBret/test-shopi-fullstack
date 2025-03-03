@@ -65,8 +65,8 @@ export default function ProductDetails() {
             <Card padding="0">
                 {
                     !isLoading ? Object.values(productDetails).map((item, index) => (
-                        <>
-                            <Box key={index} padding="300">
+                        <div key={index}>
+                            <Box padding="300">
                                 <InlineStack align="space-between">
                                     <Text as="p" variant="headingMd">
                                         {String(Object.keys(productDetails)[index]).charAt(0).toUpperCase() + 
@@ -86,7 +86,7 @@ export default function ProductDetails() {
                                 </InlineStack>
                             </Box>
                             <Divider></Divider>
-                        </>
+                        </div>
                     ))
                     :
                     <Box padding="300">
